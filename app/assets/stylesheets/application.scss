@@ -1,2 +1,7 @@
-@import "reset";
+@import "./reset";
+@import "variable";
+@import "font-awesome-sprockets";
+@import "./font-awesome";
 @import "albums";
+@import "modules/nav_bar";
+@import "modules/contents_main";

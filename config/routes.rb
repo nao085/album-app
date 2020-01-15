@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'albums#index'
+  get 'albums/index'
+  root "albums#index"
 end
