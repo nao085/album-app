@@ -1,0 +1,18 @@
+.body
+  .header
+    .header__container
+      .header__box
+        = link_to "#", class: "header__box--btn" do
+          %i.fa.fa-book-open
+        = link_to 'AlbumApp', "#", class: "header__box--title"
+      .search__box
+        %input.search__box--text{name: "text", placeholder: " \uf002  検索     ", type: "text", value: "", class: "fa"}
+      .header__items
+        = link_to "#", class: "header__items--album--btn" do
+          %i.fa.fa-book
+        = link_to 'アルバム', "#", class: "header__items--album--btn--name"
+        = link_to "#", class: "header__items--user--btn" do
+          %i.fas.fa-user
+        = link_to 'マイページ', "#", class: "header__items--album--btn--name"
+        // ここにログインメニュー追加予定
+    
