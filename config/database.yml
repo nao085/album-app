@@ -23,5 +23,7 @@ test:
 production:
   <<: *default
   adapter: postgresql
+  database: my_database_production
   encode: unicode
   pool: 5
+  timeout: 5000
