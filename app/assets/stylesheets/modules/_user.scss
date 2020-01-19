@@ -14,7 +14,7 @@
     max-width: 935px;
     justify-content: center;
     &--inner {
-      color: #262626;
+      color: $black;
       display: flex;
       justify-content: center;
       margin: 12px auto 0;
@@ -65,7 +65,7 @@
   align-items: center;
   border-radius: 3px;
   border: 1px solid #efefef;
-  color: #262626;
+  color: $black;
   font-size: 14px;
   background-color: #fafafa;
 }
@@ -75,7 +75,7 @@
   align-items: center;
   border-radius: 3px;
   border: 1px solid #efefef;
-  color: #262626;
+  color: $black;
   font-size: 14px;
   background-color: #fafafa;
 }
@@ -85,7 +85,7 @@
   align-items: center;
   border-radius: 3px;
   border: 1px solid #efefef;
-  color: #262626;
+  color: $black;
   font-size: 14px;
   background-color: #fafafa;
 }
@@ -95,7 +95,7 @@
   align-items: center;
   border-radius: 3px;
   border: 1px solid #efefef;
-  color: #262626;
+  color: $black;
   font-size: 14px;
   background-color: #fafafa;
 }
@@ -213,7 +213,7 @@
     }
   }
   &__profile {
-    color: #262626;
+    color: $black;
     flex-basis: 30px;
     flex-grow: 2;
     flex-shrink: 1;
@@ -285,11 +285,11 @@
 }
 .follower-count {
   text-decoration: none;
-  color: #262626;
+  color: $black;
 }
 .following-count {
   text-decoration: none;
-  color: #262626;
+  color: $black;
 }
 
 
