@@ -1,0 +1,28 @@
+%main.account-page
+  .account-page__container
+    .account-page__container--inner
+      .inner__wrapper
+        %h1.page-title= 'AlbumApp'
+        .inner-contents
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              -# = f.label :name
+              -# %br/
+              = f.text_field :name, autofocus: true, maxlength: 8, placeholder: 'ユーザーネーム', class: 'login-input-name'
+            .field
+              -# = f.label :email
+              -# %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス', class: 'login-input-email'
+            .field
+              -# = f.label :password
+              -# %br/
+              = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード', class: 'login-input-pass'
+            - if devise_mapping.rememberable?
+              .field
+                = f.check_box :remember_me
+                = f.label :remember_me
+            .actions
+              = f.submit t('.sign_in'), class: 'login-btn'
+        .inner-contents__footer
+          %p.account-have-conf アカウントをお持ちでないですか？
+          = render "users/shared/links"
