@@ -13,6 +13,6 @@
         = link_to 'アルバム', "#", class: "header__items--album--btn--name"
         = link_to "#", class: "header__items--user--btn" do
           %i.fas.fa-user
-        = link_to 'マイページ', "#", class: "header__items--album--btn--name"
+        = link_to 'マイページ', user_path(current_user), class: "header__items--album--btn--name"
         // ここにログインメニュー追加予定
     

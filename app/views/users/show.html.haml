@@ -1,0 +1,35 @@
+= render "albums/nav_bar"
+%main.main__contents
+  .main__container
+    .profile__container
+      .profile__container__avatar
+        .profile__container__avatar-outer
+        // avatar 後で実装
+      .profile__container__profile
+        .profile__container__profile-outer
+          %h1.profile__container__profile-box__user-name
+            = current_user.name
+            = link_to edit_user_path(current_user),class: "edit__user-outer" do
+              %button.edit__user-outer-btn プロフィールを編集
+            = link_to destroy_user_session_path, method: :delete, class: "destroy_sesion-outer" do
+              %button.destroy__session-outer-btn ログアウト
+        %ul.profile__container__list-outer
+          %li.list-inner
+            %span.list-inner__post-count 投稿 x 件
+          %li.list-inner
+            = link_to 'フォロワー()人', '#', class: "follower-count"
+          %li.list-inner
+            = link_to '()人をフォロー中', '#', class: "following-count"
+    .card__menu
+      %span.card__menut__itle 投稿一覧
+    .card__list__container
+      .card
+        = link_to image_tag("img01.jpg",size: '293x293', alt: "", class: "card__image" ),'#' 
+        %p title    
+      .card
+        = link_to image_tag("img01.jpg",size: '293x293', alt: "", class: "card__image" ),'#' 
+        %p title 
+      .card
+        = link_to image_tag("img01.jpg",size: '293x293', alt: "", class: "card__image" ),'#' 
+        %p title 
+
