@@ -45,20 +45,24 @@
   font-size: 36px;
   font-family: 'Damion', cursive;
 }
+
 .inner-contents {
   margin-bottom: 20px;
   width: 100%;
   height: 360px;
 }
+
 .new_user {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
+
 .field {
   margin: 0 40px 6px;
 }
+
 .login-input-name {
   height: 36px;
   width: 100%;
@@ -69,6 +73,7 @@
   font-size: 14px;
   background-color: #fafafa;
 }
+
 .login-input-email {
   height: 36px;
   width: 100%;
@@ -79,6 +84,7 @@
   font-size: 14px;
   background-color: #fafafa;
 }
+
 .login-input-pass {
   height: 36px;
   width: 100%;
@@ -89,6 +95,7 @@
   font-size: 14px;
   background-color: #fafafa;
 }
+
 .login-input-passconf {
   height: 36px;
   width: 100%;
@@ -99,9 +106,11 @@
   font-size: 14px;
   background-color: #fafafa;
 }
+
 .actions {
   margin: 8px 40px;
 }
+
 .register-btn {
   font-size: 14px;
   font-weight: 600;
@@ -142,18 +151,30 @@
   font-size: 14px;
   font-weight: 600;
 }
+
 .account-have-conf {
   display: inline-block;
 }
+
 .btn {
   text-decoration: none;
   color: #3897f0;
 }
+
+.slider {
+  display: none;
+}
+
+.slider.slick-initialized {
+  display:block;
+}
+
 .slide__image {
   max-width: 100%;
   width: 600px;
   height: 350px;
 }
+
 .slick-slide {
   transition: .3s ease;
   transform: scale(.85);
@@ -161,6 +182,7 @@
   filter: blur(7px);
   position: relative;
 }
+
 .slick-current {
   position: relative;
   z-index: 2;
@@ -168,9 +190,11 @@
   transform-origin: 50% 50%;
   filter: blur(0);
 }
+
 .slick-current + .slick-slide {
   transform-origin: -10% 50%;
 }
+
 .slick-slide .caption {
   position: absolute;
   text-align: center;
@@ -187,6 +211,7 @@
   opacity: 0;
   transition: .3s ease;
 }
+
 .slick-current .caption {
   opacity: 1;
   transition-delay: .5s;
@@ -254,6 +279,7 @@
     }
   }
 }
+
 .destroy__session-outer {
   margin-left: 20px;
   &-btn {
@@ -278,15 +304,18 @@
   margin-bottom: 20px;
   display: flex;
 }
+
 .list-inner {
   margin-left: 0;
   margin-right: 40px;
   font-style: 16px;
 }
+
 .follower-count {
   text-decoration: none;
   color: $black;
 }
+
 .following-count {
   text-decoration: none;
   color: $black;
@@ -303,3 +332,173 @@
   line-height: 50px;
 }
 
+// user edit ページ 
+
+.account-edit-page__container {
+ width: 100%;
+ max-width: 935px;
+ background-color: #fff;
+ border: 1px solid #dbdbdb;
+ border-radius: 3px;
+ margin: 60px auto 0;
+ overflow: hidden;
+ justify-content: stretch;
+ flex-grow: 1;
+ flex-shrink: 0;
+ display: flex;
+ position: relative;
+}
+
+.account-edit-page__inner--left {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 236px;
+  border-right: 1px solid #dbdbdb;
+  &-list {
+    border-left: 2px solid transparent;
+    border-left-color: $black;
+    display: block;
+    font-style: 16px;
+    height: 100%;
+    line-height: 20px;
+    padding: 16px 16px 16px 30px;
+    width: calc(100% - 48px);
+    font-weight: 600;
+    &-link {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+}
+
+.account-edit-page__inner--right {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 400px;
+  min-width: 50px;
+  position: relative;
+  flex-direction: column;
+  &-header {
+    display: flex;
+    flex-direction: row;
+    margin: 32px 0 0;
+    justify-content: flex-start;
+    &-avatar {
+      height: 38px;
+      width: 38px;
+      margin: 2px 32px 0 124px;
+      &-box {
+        background-color: #fafafa;
+        border-radius: 50%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative
+      }
+    }
+    &-user {
+      flex: 0 1 auto;
+      margin-right: 20px;
+      overflow: hidden;
+      &-name {
+        font-size: 20px;
+        line-height: 22px;
+        margin-bottom: 2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 400;
+      }
+    }
+    &-avatar-btn {
+      text-align: left;
+      color: #3897f0;
+      color: rgba(var(--h5f,56,151,240),1); //透過しない？
+      border: 0;
+      outline: 0;
+      display: inline;
+      padding: 0;
+      position: relative;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
+
+.account-page__inner--right-user-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.edit__box {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-start;
+  &-label {
+    padding-right: 32px;
+    text-align: right;
+    padding-left: 32px;
+    margin-top: 6px;
+    flex: 0 0 194px;
+    color: $black;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+  &-name-form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-right: 60px;
+    flex-basis: 355px;
+    &-text {
+      border: 1px solid #efefef;
+      border-radius: 3px;
+      color: $black;
+      font-size: 16px;
+      flex-grow: 1;
+      flex-shrink: 0;
+      height: 32px;
+      padding: 0 10px;
+    }
+  }
+  &-email-form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-right: 60px;
+    flex-basis: 355px;
+    &-text {
+      border: 1px solid #efefef;
+      border-radius: 3px;
+      color: $black;
+      font-size: 16px;
+      flex-grow: 1;
+      flex-shrink: 0;
+      height: 32px;
+      padding: 0 10px;
+    }
+  }
+  &-container {
+    align-items: center;
+    margin-top: 16px;
+    &-btn {
+      border: 1 solid transparent;
+      background-color: #3897f0;
+      color: #fff;
+      border-radius: 4px;
+      position: relative;
+      display: block;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 5px 9px;
+      text-align: center;
+    }
+  }
+}
