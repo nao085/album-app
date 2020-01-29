@@ -15,7 +15,8 @@
               %button.destroy__session-outer-btn ログアウト
         %ul.profile__container__list-outer
           %li.list-inner
-            %span.list-inner__post-count 投稿 x 件
+            %span.list-inner__post-count
+              = "投稿 #{current_user.albums.count} 件"
           %li.list-inner
             = link_to 'フォロワー()人', '#', class: "follower-count"
           %li.list-inner
