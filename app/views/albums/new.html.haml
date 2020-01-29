@@ -1,0 +1,29 @@
+= form_for @album, html: {class: "post-form dropzone", id: "image-dropzone"} do |f|
+  = render 'layouts/error_messages', model: f.object
+  %h2.post-form__header
+    アルバムを投稿
+  .post-form__title
+    %label.post-form__title-text
+      タイトル
+    = f.text_field :title, class: 'post-form__title-text-input', placeholder: "タイトル(40字まで)"
+  .post-form-container
+    %label.post-form-container__label
+      投稿画像
+      %p 最大10枚までアップロードできます
+    = f.fields_for :album_images do |image|
+      .dropzone-container.clearfix
+        #preview
+        .dropzone-area
+          = image.label :image, class: "dropzone-box", for: "upload-image" do
+            .input_area
+              = image.file_field :image, multiple: true, name: "album_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0
+            #p ここをクリックしてください
+        #preview2
+        .dropzone-area2.clearfix
+          = image.label :image, class: "dropzone-box", for: "upload-image" do
+            .input_area
+              = image.file_field :image, multiple: true, type: 'file', name: "album_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0
+            #p ここをクリックしてください
+    .post-form-actions
+      = f.submit '投稿する', class: 'submit-btn'
+      = link_to "戻る", root_path, class: 'return-btn'

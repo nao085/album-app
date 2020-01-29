@@ -1,10 +1,13 @@
 @import "./reset";
-@import "variable";
+@import "./config/variable";
+@import "./mixin/clearfix";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "albums";
 @import "modules/nav_bar";
 @import "modules/contents_main";
+@import "modules/user";
+@import "modules/form";
 @import "modules/user";
 @import "slick-theme";
 @import "slick";

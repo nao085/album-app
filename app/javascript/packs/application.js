@@ -10,6 +10,7 @@ require("channels")
 require("jquery")
 require('slick.min')
 require('users')
+require('albums')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

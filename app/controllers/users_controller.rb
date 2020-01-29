@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @album = Album.new
+    @album.album_images.build
   end
 
   def edit
