@@ -23,14 +23,11 @@
             = link_to '()人をフォロー中', '#', class: "following-count"
     .card__menu
       %span.card__menut__itle 投稿一覧
-    .card__list__container
-      .card
-        = link_to image_tag("img01.jpg",size: '293x293', alt: "", class: "card__image" ),'#' 
-        %p title    
-      .card
-        = link_to image_tag("img01.jpg",size: '293x293', alt: "", class: "card__image" ),'#' 
-        %p title 
-      .card
-        = link_to image_tag("img01.jpg",size: '293x293', alt: "", class: "card__image" ),'#' 
-        %p title 
-
+    -# .card__list__container
+    .grid
+      - @user.albums.each do |album|
+        .card
+          = link_to image_tag(album.album_images.last.image.url,resize: '293x293', alt: "", class: "card__image" ),'#' 
+          %p 
+            = album.title   
+        

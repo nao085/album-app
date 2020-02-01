@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_093822) do
+ActiveRecord::Schema.define(version: 2020_01_30_173449) do
 
   create_table "album_images", force: :cascade do |t|
     t.integer "album_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_093822) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
