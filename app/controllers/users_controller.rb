@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @album = Album.new
+
   end
 
   def update

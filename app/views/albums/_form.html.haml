@@ -19,13 +19,13 @@
             .dropzone-area
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 .input_area
-                  = image.file_field :image, multiple: true, name: "album_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0
+                  = image.file_field :image, multiple: true, name: 'album_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                 #p ここをクリックしてください
             #preview2
             .dropzone-area2.clearfix
               = image.label :image, class: "dropzone-box", for: "upload-image" do
-                .input_area
-                  = image.file_field :image, multiple: true, type: 'file', name: "album_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0
+                -# .input_area
+                -#   = image.file_field :image, multiple: true, type: 'file', name: "album_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0
                 #p ここをクリックしてください
         .post-form-actions
           = f.submit '投稿する', class: 'submit-btn'
