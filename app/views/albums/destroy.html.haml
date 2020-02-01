@@ -5,8 +5,6 @@
         = link_to root_path, class: "header__box--btn" do
           %i.fa.fa-book-open
         = link_to 'AlbumApp', root_path, class: "header__box--title"
-      .search__box
-        %input.search__box--text{name: "text", placeholder: " \uf002  検索     ", type: "text", value: "", class: "fa"}
       .header__items
         = link_to "#", class: "header__items--album--btn" do
           %i.fa.fa-book
@@ -15,4 +13,9 @@
         = link_to "user_path(current_user)", class: "header__items--user--btn" do
           %i.fas.fa-user
         = link_to 'マイページ', user_path(current_user), class: "header__items--album--btn--name"
+  .main__contents      
+    .destroy__announce-box
+      %P 削除が完了しました。
+      = link_to "投稿一覧へ戻る", root_path, class: 'return-btn'
+
     
