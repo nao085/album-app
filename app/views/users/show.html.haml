@@ -29,5 +29,18 @@
         .card
           = link_to image_tag(album.album_images.last.image.url,resize: '293x293', alt: "", class: "card__image" ),'#' 
           %p 
-            = album.title   
+            = album.title
+          .more  
+            %span.more-image--box
+              = image_tag'menu_icon.svg', class: 'more-image'
+            %ul.more-list
+              %li
+                = link_to '詳細', "#"
+              - if user_signed_in? && current_user.id == album.user_id
+                %li
+                  = link_to '編集', "#"
+                %li
+                  = link_to '削除', "/albums/#{album.id}", method: :delete
+
+
         
