@@ -1,3 +1,4 @@
+// 新規投稿
 $(document).on('turbolinks:load', function(){
   var dropzone = $('.dropzone-area');
   var dropzone2 = $('.dropzone-area2');
@@ -137,5 +138,37 @@ $(document).on('turbolinks:load',function(){
   $('.js-modal-close').on('click', function(){
     $('.js-modal').fadeOut();
     return false;
+  });
+}); 
+
+// show album.js
+// $(document).on('turbolinks:load',function (){
+//   $("#modalDetails").on("show.bs.modal", function(e) {
+//     var link = $(e.relatedTarget);
+//     $(this).find(".modal-content").load(link.attr("data-href"));
+//   });
+// });
+
+
+// turn-album
+$(document).on('turbolinks:load',function(){
+  $('#album-turn').turn(
+    {
+      width: 800,
+      height: 500,
+      elevation: 300,
+      duration: 1000,
+      gradients: true,
+      autoCenter: false,
+      direction: 'rtl',
+    }
+  );
+// 前のページが押された時
+  $('#prevpage').click(function(){
+    $('#album-turn').turn('previous');
+  });
+// 次のページが押された時
+  $('#nextpage').click(function(){
+    $('#album-turn').turn('next');
   });
 });

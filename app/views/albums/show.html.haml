@@ -1,0 +1,15 @@
+= render "albums/nav_bar"
+%main.main__contents
+  .post__contents
+    .post__container
+      .post__container--inner
+        #album-turn
+          - @album_images.each do |album|
+            = image_tag(album.image.to_s, alt: "")
+        %ul.move__page-box 
+          %li.move__page-box--prevpage
+            %span{id: "prevpage"}
+              前のページ
+          %li.move__page-box--nextpage
+            %span{id: "nextpage"}
+              次のページ
