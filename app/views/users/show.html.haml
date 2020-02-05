@@ -35,7 +35,10 @@
               = image_tag'menu_icon.svg', class: 'more-image'
             %ul.more-list
               %li
-                = link_to '詳細', "#"
+                = link_to '詳細',"/albums/#{album.id}",method: :get , data:{href: "/albums/#{album.id}", toggle: "modal", target: "#modalDetails"} 
+                -# .modal.fade{id: "modalDetails", tabindex: "-1", role: "dialog", aria:{labelledby: "myModalLabel"}}
+                -#   .modal-dialog{role: "document"}
+                -#     .modal-content
               - if user_signed_in? && current_user.id == album.user_id
                 %li
                   = link_to '編集', "#"

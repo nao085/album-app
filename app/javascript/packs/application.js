@@ -9,8 +9,12 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require('slick.min')
+require('turn.min')
 require('users')
 require('albums')
+
+import "bootstrap"
+import "../src/style.scss"
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

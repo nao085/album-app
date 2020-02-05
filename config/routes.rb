@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # get 'albums/index'
   root "albums#index"
   resources :users, only: [:show, :edit, :update]
-  resources :albums, only: [:index, :new, :create, :destroy]
+  resources :albums, only: [:index, :new, :create, :destroy, :show]
 end
