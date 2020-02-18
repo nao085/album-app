@@ -6,11 +6,13 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
     @album = Album.new
 
   end
 
   def update
+    @user = User.find(params[:id])
     if current_user.update(user_params)
       redirect_to root_path
     else
@@ -21,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :avatar, :avatar_cache, :remove_avatar)
   end
 end

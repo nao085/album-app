@@ -1,0 +1,19 @@
+@mixin hover_black {
+  position: relative;
+  display: inline-block;
+  &:hover {
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      z-index: 3;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(53, 52, 52, 0.318);
+    }
+  }
+
+  @content;
+}
