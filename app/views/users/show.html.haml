@@ -4,7 +4,11 @@
     .profile__container
       .profile__container__avatar
         .profile__container__avatar-outer
-        // avatar 後で実装
+          .circle-avatar
+          - if current_user.persisted? && current_user.avatar?
+            = image_tag(current_user.avatar.to_s, class: "circle-avatar__img")
+          - else
+            = image_tag('no_avatar.png',class: 'circle-avatar__img')
       .profile__container__profile
         .profile__container__profile-outer
           %h1.profile__container__profile-box__user-name
@@ -27,7 +31,7 @@
     .grid
       - @user.albums.each do |album|
         .card
-          = link_to image_tag(album.album_images.last.image.url,resize: '293x293', alt: "", class: "card__image" ),'#' 
+          = link_to image_tag(album.album_images.last.image.url,resize: '293x293', alt: "", class: "card__image" ), "/albums/#{album.id}" 
           %p 
             = album.title
           .more  

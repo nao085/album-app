@@ -5,17 +5,25 @@
       %li.account-edit-page__inner--left-list
         = link_to 'プロフィールを編集', edit_user_path(current_user), class: "account-edit-page__inner--left-list-link"
     .account-edit-page__inner--right
-      .account-edit-page__inner--right-header
-        .account-edit-page__inner--right-header-avatar
-          .account-edit-page__inner--right-header-avatar-box
-          // アバター後で実装 buttonとform
-        .account-edit-page__inner--right-header-user
-          %h1.account-edit-page__inner--right-header-user-name 
-            = current_user.name
-          %button.account-edit-page__inner--right-header-avatar-btn プロフィール写真を変更
-          // アバター後で実装 buttonとform   
-      .account-page__inner--right-user-form
-        = form_for(current_user) do |f|
+      = form_for(current_user) do |f|
+        .account-edit-page__inner--right-header
+          .account-edit-page__inner--right-header-avatar
+            .account-edit-page__inner--right-header-avatar-box
+              %label{class: "circle-avatar"}
+                %img#avatar_img_prev.hidden{src: "#"}
+                - if current_user.persisted? && current_user.avatar?
+                  = image_tag(current_user.avatar.to_s, class: 'avatar_present_img')
+                  -# %label
+                  -#   = f.check_box :remove_avatar
+                - else
+                  = image_tag('no_avatar.png',class: 'avatar_present_img')
+                  = f.hidden_field :avatar_cache
+                = f.file_field :avatar, id: 'post_img'
+          .account-edit-page__inner--right-header-user
+            %h1.account-edit-page__inner--right-header-user-name 
+              = current_user.name
+            %button.account-edit-page__inner--right-header-avatar-btn プロフィール写真を変更
+        .account-page__inner--right-user-form
           .field.edit__box
             .field-label.edit__box-label
               = f.label :name
