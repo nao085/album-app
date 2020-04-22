@@ -1,7 +1,5 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Album-app
+画像を投稿してアルバムを作ることができ、共有することができるwebサービスです。
 
 Things you may want to cover:
 
