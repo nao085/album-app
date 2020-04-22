@@ -13,7 +13,7 @@ https://pacific-garden-78264.herokuapp.com/
   * 画像を投稿しアルバムを作成できる 
   [![Screenshot from Gyazo](https://gyazo.com/0c3c2308f1eda50eeb2b578039d7c635/raw)](https://gyazo.com/0c3c2308f1eda50eeb2b578039d7c635)  
   * 投稿したアルバムをアルバムをめくるように表示できる  
-  [![Image from Gyazo](https://i.gyazo.com/315754005a50222c65ca7ef60ba5f08f.gif)](https://gyazo.com/315754005a50222c65ca7ef60ba5f08f)
+  [![Screenshot from Gyazo](https://gyazo.com/315754005a50222c65ca7ef60ba5f08f/raw)](https://gyazo.com/315754005a50222c65ca7ef60ba5f08f)
   
   
   
