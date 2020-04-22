@@ -37,6 +37,7 @@ class AlbumsController < ApplicationController
     @album_images = @album.album_images
   end
 
+  private
   def album_params
     params.require(:album).permit(:title, album_images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id)
   end

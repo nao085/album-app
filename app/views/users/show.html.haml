@@ -30,7 +30,6 @@
             = link_to "#{@user.following.count}人をフォロー中", following_user_path(@user.id), class: "following-count"
     .card__menu
       %span.card__menut__itle 投稿一覧
-    -# .card__list__container
     .grid
       - @user.albums.each do |album|
         .card
@@ -43,9 +42,6 @@
             %ul.more-list
               %li
                 = link_to '詳細',"/albums/#{album.id}",method: :get , data:{href: "/albums/#{album.id}", toggle: "modal", target: "#modalDetails"} 
-                -# .modal.fade{id: "modalDetails", tabindex: "-1", role: "dialog", aria:{labelledby: "myModalLabel"}}
-                -#   .modal-dialog{role: "document"}
-                -#     .modal-content
               - if user_signed_in? && current_user.id == album.user_id
                 %li
                   = link_to '編集', "#"
