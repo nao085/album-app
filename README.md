@@ -66,8 +66,8 @@ https://pacific-garden-78264.herokuapp.com/
 ## relationshipsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|follower_id|integer|unique: true|
-|following_id|integer|unique: true||
+|follower_id|integer|unique: true, index: true|
+|following_id|integer|unique: true, index: true|
 
 ### Association
 - belongs_to :follower, class_name: "User"
