@@ -19,7 +19,7 @@
               = link_to destroy_user_session_path, method: :delete, class: "destroy_sesion-outer" do
                 %button.destroy__session-outer-btn ログアウト
             - else
-              = render "follow_form"
+              = render "follow_form", object: @user
         %ul.profile__container__list-outer
           %li.list-inner
             %span.list-inner__post-count

@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
     @albums = Album.includes(:user)
     @album = Album.new
     @album.album_images.build
+    @users = User.all.order("created_at DESC")
   end
 
   def new
