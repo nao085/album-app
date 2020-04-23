@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # get 'albums/index'
   root "albums#index"
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :following, :followers
     end
