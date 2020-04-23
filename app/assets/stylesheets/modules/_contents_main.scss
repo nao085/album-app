@@ -9,23 +9,15 @@
 }
 .main__container {
   background-color: #fafafa;
-  padding-top: 60px;
   height: 100%;
-  padding: 60px 20px 0;
+  padding: 30px 20px 0;
   margin: 0 auto 30px;
   width: calc(100% - 40px);
   max-width: 935px;
   box-sizing: content-box;
   position: relative;
 }
-// .card__list__container {
-//   width: 100%;
-//   height: 293px;
-//   margin-bottom: 28px;
-//   display: flex;
-//   flex: wrap;
-//   text-align: center;
-// }
+
 .grid {
   display: grid;
   grid-template-columns: 300px 300px 300px;
