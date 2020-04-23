@@ -15,7 +15,7 @@ https://pacific-garden-78264.herokuapp.com/
   [![Screenshot from Gyazo](https://gyazo.com/0c3c2308f1eda50eeb2b578039d7c635/raw)](https://gyazo.com/0c3c2308f1eda50eeb2b578039d7c635)  
   * 投稿した画像をアルバムをめくるように表示できる  
   ![315754005a50222c65ca7ef60ba5f08f](https://user-images.githubusercontent.com/57151814/79974396-3d9f3a80-84d4-11ea-9afc-e99eb2b11562.gif)
-
+  * ユーザーフォロー機能
 # 工夫したポイント
 アルバムをめくるようなアニメーションを表現するためにjQueryのプラグインであるturn.jsを使用しました。
 # 使用技術一覧
@@ -38,6 +38,10 @@ https://pacific-garden-78264.herokuapp.com/
 
 ### Association
 - has_many :albums
+- has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+- has_many :following, through: :following_relationships
+- has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+- has_many :followers, through: :follower_relationships
 
 ## albumsテーブル
 |Column|Type|Options|
@@ -57,3 +61,15 @@ https://pacific-garden-78264.herokuapp.com/
 
 ### Association
 - belongs_to :album, optional: true
+
+## relationshipsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|follower_id|integer|unique: true|
+|following_id|integer|unique: true||
+
+### Association
+- belongs_to :follower, class_name: "User"
+- belongs_to :following, class_name: "User"
+
+
