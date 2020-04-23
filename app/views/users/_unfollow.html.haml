@@ -1,3 +1,5 @@
 //フォロー解除ボタン
-= form_for(current_user, url: relationship_path(@user), method: :delete, remote: true) do |f|
+-# = form_for(current_user, url: relationship_path(@user), method: :delete, remote: true) do |f|
+-#   = f.submit "フォロー中", class: "remove-follow-btn"
+= form_for(current_user, url: relationship_path(object), method: :delete, remote: true) do |f|
   = f.submit "フォロー中", class: "remove-follow-btn"
