@@ -1,0 +1,12 @@
+-# - if user_signed_in? && @user != current_user
+-#   #follow_form
+-#     - if current_user.following?(@user)
+-#       = render "unfollow"
+-#     - else
+-#       = render "follow"
+- if user_signed_in? && object != current_user
+  %div{id:"follow_form_#{object.id}"}
+    - if current_user.following?(object) 
+      = render 'unfollow' , object: object
+    - else 
+      = render 'follow' , object: object

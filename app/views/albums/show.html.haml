@@ -13,3 +13,5 @@
           %li.move__page-box--nextpage
             %span{id: "nextpage"}
               次のページ
+        %span.post__container--inner__text 投稿者
+        = link_to "#{@album.user.name}","/users/#{@album.user_id}", class: "post__container--inner__post-author"

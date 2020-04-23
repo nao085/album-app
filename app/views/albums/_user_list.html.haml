@@ -1,0 +1,24 @@
+.list-main
+  %h2.list-main__header
+    ユーザー一覧
+    = link_to "全て見る", users_path, class: "list-main__header-link"
+  .list-main__inner
+    .grid-user.user-slider
+      - @users.each do |user|
+        .card-user
+          - if user.avatar.blank?
+            = link_to image_tag("no_avatar.png",resize: '56x56', alt: "", class: "card-user__image"), user_path(user.id)
+          - else
+            = link_to image_tag("#{user.avatar}",resize: '56x56', alt: "", class: "card-user__image"), user_path(user.id)
+          = link_to "#{user.name}", user_path(user.id), class: "card-user__name"
+          -# = render "users/follow_form", object: @user
+          - if user_signed_in? && user != current_user
+            %div{id: "follow_form_#{user.id}"}
+
+              - if current_user.following?(user)
+                = form_for(current_user, url: relationship_path(user), method: :delete, remote: true) do |f|
+                  = f.submit "フォロー中", class: "remove-follow-btn"
+              - else
+                = form_for(current_user, url: relationships_path, method: :post, remote: true) do |f|
+                  = hidden_field_tag :following_id, user.id
+                  = f.submit "フォローする", class: "follow-btn"

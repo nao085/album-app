@@ -141,15 +141,6 @@ $(document).on('turbolinks:load',function(){
   });
 }); 
 
-// show album.js
-// $(document).on('turbolinks:load',function (){
-//   $("#modalDetails").on("show.bs.modal", function(e) {
-//     var link = $(e.relatedTarget);
-//     $(this).find(".modal-content").load(link.attr("data-href"));
-//   });
-// });
-
-
 // turn-album
 $(document).on('turbolinks:load',function(){
   $('#album-turn').turn(

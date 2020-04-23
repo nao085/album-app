@@ -1,0 +1,13 @@
+.body
+  .header
+    .header__container
+      .header__box
+        = link_to root_path, class: "header__box--btn" do
+          %i.fa.fa-book-open
+        = link_to 'AlbumApp', root_path, class: "header__box--title"
+      .search__box
+        %input.search__box--text{name: "text", placeholder: " \uf002  検索     ", type: "text", value: "", class: "fa"}
+      .header__items
+        = link_to "user_path(current_user)", class: "header__items--user--btn" do
+          %i.fas.fa-user
+        = link_to 'マイページ', user_path(current_user), class: "header__items--album--btn--name"

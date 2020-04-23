@@ -1,6 +1,6 @@
 %main.main__contents
   .main__container
-    -# .card__list__container
+    = render "user_list"
     .grid
       - @albums.each do |album|
         .card

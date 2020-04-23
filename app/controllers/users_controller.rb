@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all.order("created_at DESC")
+  end
+  
   def show
     @user = User.find(params[:id])
     @album = Album.new
@@ -18,6 +23,18 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following
+    render 'following'
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'follower'
   end
 
   private

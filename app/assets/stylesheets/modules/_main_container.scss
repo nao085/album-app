@@ -1,0 +1,67 @@
+.main-container {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  top: 77px;
+  z-index: 1;
+  background-color: #fafafa;
+  &--inner {
+    background-color: #fafafa;
+    height: 100%;
+    padding: 30px 20px 0;
+    margin: 0 auto 30px;
+    max-width: 600px;
+    box-sizing: content-box;
+    position: relative;
+    &-header {
+      padding: 0 12px;
+      margin: 16px 0;
+      &Title {
+        display: block;
+        color: #262626;
+        font-size: 16px;
+        line-height: 24px;
+        margin: -6px 0 -6px;
+        font-weight: 600;
+      }
+    }
+    &-box {
+      padding: 8px 0;
+      background-color: #fff;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+        .main-container--inner-contents {
+        height: auto;
+        overflow: hidden;
+        &Box {
+          width: 100%;
+          padding: 8px 16px;
+          align-items: center;
+          display: flex;
+          justify-content: flex-start;
+          & .list-avatar{
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+          }
+          & .list-userName {
+            padding-left: 20px;
+            text-decoration: none;
+            cursor: pointer;
+            color: #262626;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 18px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+}
