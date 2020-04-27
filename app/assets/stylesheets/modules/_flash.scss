@@ -1,0 +1,23 @@
+.flashBox--notice {
+  position: absolute;
+  top: 76px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: rgb(202, 236, 209);
+  color: rgb(10, 90, 7);
+  text-align: center;
+  z-index: 1000;
+}
+
+.flashBox--alert {
+  position: absolute;
+  top: 79px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: rgb(247, 216, 218);
+  color: rgb(187, 121, 127);
+  text-align: center;
+  z-index: 1000;
+}
