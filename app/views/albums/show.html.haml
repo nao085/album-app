@@ -1,5 +1,5 @@
 = render "albums/nav_bar"
-%main.main__contents
+%main.show__contents
   .post__contents
     .post__container
       .post__container--inner
@@ -13,5 +13,60 @@
           %li.move__page-box--nextpage
             %span{id: "nextpage"}
               次のページ
-        %span.post__container--inner__text 投稿者
-        = link_to "#{@album.user.name}","/users/#{@album.user_id}", class: "post__container--inner__post-author"
+        %span.post__container--innerTitle
+          = "タイトル: " "#{@album.title}"
+        .postUser_box
+          - if @album.user.avatar.blank?
+            = link_to image_tag("no_avatar.png",resize: '56x56', alt: "", class: "postUser_box-avatar"), user_path(@album.user_id)
+          - else 
+            = link_to image_tag("#{@album.user.avatar}",resize: '56x56', alt: "", class: "postUser_box-avatar"), user_path(@album.user_id)
+          = link_to "#{@album.user.name}", user_path(@album.user_id), class: "postUser_box-author"
+          - if user_signed_in? && @user != current_user
+            %div{id: "follow_form_#{@album.user_id}"}
+              - if current_user.following?(@album.user)
+                = form_for(current_user, url: relationship_path(@album.user), method: :delete, remote: true) do |f|
+                  = f.submit "フォロー中", class: "remove-follow-btn"
+              - else
+                = form_for(current_user, url: relationships_path, method: :post, remote: true) do |f|
+                  = hidden_field_tag :following_id, @album.user_id
+                  = f.submit "フォローする", class: "follow-btn"
+        .commentBox
+          %ul.commentBox-inner
+            -if @comments
+              -@album.comments.each do |comment|
+                %li.commentBox-innerList
+                  .comment-user
+                    - if comment.user.avatar.blank?
+                      = link_to image_tag("no_avatar.png",resize: '56x56', alt: "", class: "postUser_box-avatar"), user_path(comment.user_id)
+                    - else 
+                      = link_to image_tag("#{comment.user.avatar}",resize: '56x56', alt: "", class: "postUser_box-avatar"), user_path(comment.user_id)
+                    .comment-user-name
+                      = comment.user.name
+                  .comment-body
+                    = comment.text
+                    .comment-icons
+                      .comment-icons-left
+                        %i.far.fa-clock
+                        %span
+                          = time_ago_in_words(comment.created_at)+"前"
+                      .comment-icons-right
+                        .comment-delete
+                          - if user_signed_in? && comment.user_id == current_user.id  || @album.user_id == current_user.id
+                            = link_to album_comment_path(@album,comment), method: :delete do
+                              %i.fas.fa-trash-alt
+        .buttonBox
+          - if current_user
+            = form_with(model: [@album, @comment], method: :post, local: true) do |f|
+              = render 'layouts/error_messages', model: f.object
+              = f.text_area :text, id: "textarea", class: "textarea"
+              %p.text
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br>/
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              = button_tag class: "commentBtn" ,type: "submit" do
+                .fa.fa-comment
+                コメントする
+          - else
+            %strong
+              %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
