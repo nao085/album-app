@@ -13,8 +13,20 @@
           %li.move__page-box--nextpage
             %span{id: "nextpage"}
               次のページ
-        %span.post__container--innerTitle
-          = "タイトル: " "#{@album.title}"
+        .likesBox
+          %span.post__container--innerTitle
+            = "タイトル: " "#{@album.title}"
+          - if current_user.already_liked?(@album)
+            = button_to  album_like_path(@album), class: "delete-likeBtn", method: :delete do
+              %i.fas.fa-heart
+          - else
+            = button_to album_likes_path(@album), class:"likeBtn" do
+              %i.fas.fa-heart
+          .likes-count
+            = @album.likes.count
+          %i.fas.fa-comment.commentIcon
+          .commentCount
+            = @album.comments.count
         .postUser_box
           - if @album.user.avatar.blank?
             = link_to image_tag("no_avatar.png",resize: '56x56', alt: "", class: "postUser_box-avatar"), user_path(@album.user_id)
