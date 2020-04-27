@@ -15,6 +15,7 @@ https://pacific-garden-78264.herokuapp.com/
   [![Screenshot from Gyazo](https://gyazo.com/610f4b7a487f715222a4a05836e6b6d2/raw)](https://gyazo.com/610f4b7a487f715222a4a05836e6b6d2)  
   * 投稿した画像をアルバムをめくるように表示できる  
   ![315754005a50222c65ca7ef60ba5f08f](https://user-images.githubusercontent.com/57151814/79974396-3d9f3a80-84d4-11ea-9afc-e99eb2b11562.gif)
+  * コメント機能
   * ユーザーフォロー機能
   [![Screenshot from Gyazo](https://gyazo.com/ec50c4798cf4dc18522b9debeed60f7b/raw)](https://gyazo.com/ec50c4798cf4dc18522b9debeed60f7b)
 # 工夫したポイント
@@ -39,6 +40,7 @@ https://pacific-garden-78264.herokuapp.com/
 
 ### Association
 - has_many :albums
+- has_many :comments
 - has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
 - has_many :following, through: :following_relationships
 - has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
@@ -53,6 +55,7 @@ https://pacific-garden-78264.herokuapp.com/
 ### Association
 - belongs_to :user
 - has_many :album_images, dependent: :destroy
+- has_many :comments
 
 ## album_imagesテーブル
 |Column|Type|Options|
@@ -72,5 +75,17 @@ https://pacific-garden-78264.herokuapp.com/
 ### Association
 - belongs_to :follower, class_name: "User"
 - belongs_to :following, class_name: "User"
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer||
+|album_id|integer||
+|text|text|null: false|
+
+### Association
+- belongs_to :album
+- belongs_to :user
+
 
 
