@@ -146,7 +146,7 @@ $(document).on('turbolinks:load',function(){
   $('#album-turn').turn(
     {
       width: 800,
-      height: 500,
+      height: 598,
       elevation: 300,
       duration: 1000,
       gradients: true,
