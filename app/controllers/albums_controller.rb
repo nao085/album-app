@@ -34,8 +34,11 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @album = Album.find(params[:id])
     @album_images = @album.album_images
+    @comment = Comment.new
+    @comments = @album.comments.includes(:user)
   end
 
   private
