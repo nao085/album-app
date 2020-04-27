@@ -1,5 +1,6 @@
 class Album < ApplicationRecord
   belongs_to :user
+  has_many :comments
   has_many :album_images, dependent: :destroy
   accepts_nested_attributes_for :album_images, allow_destroy: true, reject_if: :all_blank
   validates :album_images, presence: true, length: { maximum: 10}
