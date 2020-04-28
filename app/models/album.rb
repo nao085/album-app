@@ -7,4 +7,9 @@ class Album < ApplicationRecord
   accepts_nested_attributes_for :album_images, allow_destroy: true, reject_if: :all_blank
   validates :album_images, presence: true, length: { maximum: 10}
   validates :title, presence: true, length: {maximum: 40}
+
+  def self.search(search)
+    return Album.all unless search
+    Album.where('title LIKE(?)', "%#{search}%")
+  end
 end
