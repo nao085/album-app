@@ -16,7 +16,7 @@
         .dropzone-area
           = image.label :image, class: "dropzone-box", for: "upload-image" do
             .input_area
-              = image.file_field :image, multiple: true, name: "album_images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0
+              = image.file_field :image, multiple: true, name: "album[album_images_attributes][#{@album.album_images.count}][image]", id: "upload-image", class: "upload-image", 'data-image': 0
             #p ここをクリックしてください
         #preview2
         .dropzone-area2.clearfix
