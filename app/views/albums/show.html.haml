@@ -16,14 +16,8 @@
         .likesBox
           %span.post__container--innerTitle
             = "タイトル: " "#{@album.title}"
-          - if current_user.already_liked?(@album)
-            = button_to  album_like_path(@album), class: "delete-likeBtn", method: :delete do
-              %i.fas.fa-heart
-          - else
-            = button_to album_likes_path(@album), class:"likeBtn" do
-              %i.fas.fa-heart
-          .likes-count
-            = @album.likes.count
+          %div{:id => "likes_buttons_#{@album.id}"}
+            = render partial: 'likes/like', locals: { album: @album}
           %i.fas.fa-comment.commentIcon
           .commentCount
             = @album.comments.count
