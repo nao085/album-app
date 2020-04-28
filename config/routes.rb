@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :albums, only: [:index, :new, :create, :destroy, :show] do
+    collection do
+      get 'search'
+    end
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end

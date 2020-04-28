@@ -42,6 +42,14 @@ class AlbumsController < ApplicationController
     @like = Like.new
   end
 
+  def search
+    @albums = Album.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def album_params
     params.require(:album).permit(:title, album_images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id)

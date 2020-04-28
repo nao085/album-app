@@ -52,9 +52,12 @@ body {
 }
 .search__box {
   flex: 0 1 auto;
-  width: 215px;
+  width: 300px;
   min-width: 125px;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+
   &--text {
     border: solid 1px #dbdbdb;
     background-color: #fafafa;
@@ -68,6 +71,17 @@ body {
     &:hover {
       opacity: 0.5;
     }
+  }
+  .search-btn {
+    width: 40px;
+    margin-left: 10px;
+    border: solid 1px $base_bgc;
+    border-radius: 4px;
+    background-color: $base_bgc;
+    font-size: 12px;
+    text-align: center;
+    color: $base_color;
+    font-weight: 400;
   }
 }
 .header__items {

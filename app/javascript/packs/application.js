@@ -13,6 +13,7 @@ require('turn.min')
 require('users')
 require('albums')
 require('flash')
+require('search')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

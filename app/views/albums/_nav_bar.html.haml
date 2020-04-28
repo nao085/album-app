@@ -5,13 +5,13 @@
         = link_to root_path, class: "header__box--btn" do
           %i.fa.fa-book-open
         = link_to 'AlbumApp', root_path, class: "header__box--title"
-      .search__box
-        %input.search__box--text{name: "text", placeholder: " \uf002  検索     ", type: "text", value: "", class: "fa"}
+      = form_with(url: search_albums_path, local: true, method: :get, class: "search__box") do |f|
+        = f.text_field :keyword, placeholder: " \uf002  キーワード検索     ", class: "search__box--text fa"
+        = f.submit "検索", class: "search-btn"
       .header__items
         = link_to "#", class: "header__items--album--btn" do
           %i.fa.fa-book
-        = link_to '投稿する', "", class: "header__items--album--btn--name", id: "js-modal-open"
-        = render partial: "albums/form"
+        = link_to '投稿する', new_album_path, class: "header__items--album--btn--name"
         = link_to "user_path(current_user)", class: "header__items--user--btn" do
           %i.fas.fa-user
         = link_to 'マイページ', user_path(current_user), class: "header__items--album--btn--name"
