@@ -16,8 +16,9 @@ https://pacific-garden-78264.herokuapp.com/
   * 投稿した画像をアルバムをめくるように表示できる  
   ![315754005a50222c65ca7ef60ba5f08f](https://user-images.githubusercontent.com/57151814/79974396-3d9f3a80-84d4-11ea-9afc-e99eb2b11562.gif)
   * コメント機能
-  * いいね機能
-  * ユーザーフォロー機能
+  * いいね機能(非同期)
+  * ユーザーフォロー機能(非同期)
+  * 検索機能
   [![Screenshot from Gyazo](https://gyazo.com/ec50c4798cf4dc18522b9debeed60f7b/raw)](https://gyazo.com/ec50c4798cf4dc18522b9debeed60f7b)
 # 工夫したポイント
 アルバムをめくるようなアニメーションを表現するためにjQueryのプラグインであるturn.jsを使用しました。
@@ -52,7 +53,7 @@ https://pacific-garden-78264.herokuapp.com/
 ## albumsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|title|string|null: false|
+|title|string|null: false,  index: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
