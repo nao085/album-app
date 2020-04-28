@@ -1,8 +1,9 @@
-%main.main__contents
+.warrper
+= render "nav_bar"
+.main.main__contents
   .main__container
-    = render "user_list"
     %h2.list-main-postIndex
-      投稿一覧
+      検索結果
     .grid
       - @albums.each do |album|
         .card
