@@ -1,0 +1,10 @@
+
+- if current_user.already_liked?(@album)
+  = button_to  album_likes_path(@album.id), remote: true, class: "delete-likeBtn", method: :delete do
+    %i.fas.fa-heart
+- else
+  = button_to album_likes_path(@album.id), remote: true, class:"likeBtn", method: :post do
+    %i.fas.fa-heart
+.likes-count
+  = @album.likes.count
+  

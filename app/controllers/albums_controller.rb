@@ -39,6 +39,7 @@ class AlbumsController < ApplicationController
     @album_images = @album.album_images
     @comment = Comment.new
     @comments = @album.comments.includes(:user)
+    @like = Like.new
   end
 
   private

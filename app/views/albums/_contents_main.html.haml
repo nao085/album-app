@@ -9,3 +9,10 @@
             = album.title
           %span 
             = album.user.name
+          .iconBox
+            %i.fas.fa-heart
+            .likes-count
+              = album.likes.count
+            %i.fas.fa-comment.commentIcon
+            .commentConut
+              = album.comments.count

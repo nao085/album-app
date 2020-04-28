@@ -13,8 +13,14 @@
           %li.move__page-box--nextpage
             %span{id: "nextpage"}
               次のページ
-        %span.post__container--innerTitle
-          = "タイトル: " "#{@album.title}"
+        .likesBox
+          %span.post__container--innerTitle
+            = "タイトル: " "#{@album.title}"
+          %div{:id => "likes_buttons_#{@album.id}"}
+            = render partial: 'likes/like', locals: { album: @album}
+          %i.fas.fa-comment.commentIcon
+          .commentCount
+            = @album.comments.count
         .postUser_box
           - if @album.user.avatar.blank?
             = link_to image_tag("no_avatar.png",resize: '56x56', alt: "", class: "postUser_box-avatar"), user_path(@album.user_id)
