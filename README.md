@@ -15,7 +15,7 @@ https://pacific-garden-78264.herokuapp.com/
   [![Screenshot from Gyazo](https://gyazo.com/610f4b7a487f715222a4a05836e6b6d2/raw)](https://gyazo.com/610f4b7a487f715222a4a05836e6b6d2)  
   * 投稿した画像をアルバムをめくるように表示できる  
   ![315754005a50222c65ca7ef60ba5f08f](https://user-images.githubusercontent.com/57151814/79974396-3d9f3a80-84d4-11ea-9afc-e99eb2b11562.gif)
-  * コメント機能
+  * コメント機能(非同期)
   * いいね機能(非同期)
   * ユーザーフォロー機能(非同期)
   * 検索機能
