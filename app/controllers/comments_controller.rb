@@ -2,18 +2,17 @@ class CommentsController < ApplicationController
   before_action :set_album
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to album_path(@album)
-    else 
-      redirect_to album_path(@comment.album.id),alert: 'コメントの投稿に失敗しました'
+    @comment = Comment.create(comment_params)
+    respond_to do |format|
+      format.html { redirect_to album_path(@album)}
+      format.json
     end
   end
 
   def destroy
-    @comment = @album.comments.find(params[:id])
+    # @comment = @album.comments.find(params[:id])
+    @comment = Comment.find_by(id: params[:id])
     @comment.destroy
-    redirect_to album_path(@album)
   end
 
   private

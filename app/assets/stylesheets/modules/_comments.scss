@@ -41,6 +41,7 @@
            font-size: 13px;
            white-space: nowrap;
            text-overflow: ellipsis;
+           color: #000;
          }
        }
        .comment-body {
@@ -53,6 +54,9 @@
          border-radius: 15px;
          line-height: 15px;
          word-break: break-all;
+         & a {
+          color: #000;
+         }
          &:after {
            content: "";
            display: inline-block;
