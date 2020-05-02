@@ -40,7 +40,7 @@
           %ul.commentBox-inner
             -if @comments
               -@album.comments.each do |comment|
-                %li.commentBox-innerList
+                %li.commentBox-innerList{id: "comment-#{comment.id}"}
                   .comment-user
                     - if comment.user.avatar.blank?
                       = link_to image_tag("no_avatar.png",resize: '56x56', alt: "", class: "postUser_box-avatar"), user_path(comment.user_id)
@@ -58,11 +58,11 @@
                       .comment-icons-right
                         .comment-delete
                           - if user_signed_in? && comment.user_id == current_user.id  || @album.user_id == current_user.id
-                            = link_to album_comment_path(@album,comment), method: :delete do
+                            = link_to album_comment_path(@album,comment), method: :delete, remote: true do
                               %i.fas.fa-trash-alt
         .buttonBox
           - if current_user
-            = form_with(model: [@album, @comment], method: :post, local: true) do |f|
+            = form_with(model: [@album, @comment], builder: CustomFormHelper, method: :post, local: true, id: "new_comment" ) do |f|
               = render 'layouts/error_messages', model: f.object
               = f.text_area :text, id: "textarea", class: "textarea"
               %p.text
