@@ -62,7 +62,7 @@
                               %i.fas.fa-trash-alt
         .buttonBox
           - if current_user
-            = form_with(model: [@album, @comment], builder: CustomFormHelper, method: :post, local: true, id: "new_comment" ) do |f|
+            = form_with(model: [@album, @comment], method: :post, local: true, id: "new_comment" ) do |f|
               = render 'layouts/error_messages', model: f.object
               = f.text_area :text, id: "textarea", class: "textarea"
               %p.text

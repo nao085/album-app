@@ -36,6 +36,15 @@
           = link_to image_tag(album.album_images.last.image.url,resize: '293x293', alt: "", class: "card__image" ), "/albums/#{album.id}" 
           %p 
             = album.title
+          %span 
+            = album.user.name
+          .iconBox
+            %i.fas.fa-heart
+            .likes-count
+              = album.likes.count
+            %i.fas.fa-comment.commentIcon
+            .commentConut
+              = album.comments.count
           .more  
             %span.more-image--box
               = image_tag'menu_icon.svg', class: 'more-image'
@@ -47,6 +56,3 @@
                   = link_to '編集', "#"
                 %li
                   = link_to '削除', "/albums/#{album.id}", method: :delete
-
-
-        
