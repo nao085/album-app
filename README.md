@@ -17,6 +17,7 @@ https://pacific-garden-78264.herokuapp.com/
   ![315754005a50222c65ca7ef60ba5f08f](https://user-images.githubusercontent.com/57151814/79974396-3d9f3a80-84d4-11ea-9afc-e99eb2b11562.gif)
   * コメント機能(非同期)
   * いいね機能(非同期)
+  [![Screenshot from Gyazo](https://gyazo.com/0141529b3321ded1dfd931e8567943c1/raw)](https://gyazo.com/0141529b3321ded1dfd931e8567943c1)
   * 検索機能
   * ハッシュタグ機能
   * ユーザーフォロー機能(非同期)
