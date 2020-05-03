@@ -50,6 +50,12 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def hashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hashname: params[:name])
+    @albums = @tag.albums
+  end
+
   private
   def album_params
     params.require(:album).permit(:title, album_images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id)
