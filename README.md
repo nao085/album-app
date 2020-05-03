@@ -35,6 +35,10 @@ https://pacific-garden-78264.herokuapp.com/
   * postgresql
   * heroku
   * Github
+# 今後追加したい機能
+  * 投稿された画像のexif情報の削除
+  * 公開範囲の設定機能
+  * AWSに切替
 # DB設計
 ## users テーブル
 |Column|Type|Options|
