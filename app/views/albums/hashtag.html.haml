@@ -5,37 +5,28 @@
       .profile__container__avatar
         .profile__container__avatar-outer
           .circle-avatar
-          - if @user.avatar?
-            = image_tag(@user.avatar.to_s, class: "circle-avatar__img")
-          - else
-            = image_tag('no_avatar.png',class: 'circle-avatar__img')
+            = image_tag('hashtag.jpeg',class: 'circle-avatar__img')
       .profile__container__profile
         .profile__container__profile-outer
           %h1.profile__container__profile-box__user-name
-            = @user.name
-            - if user_signed_in? && current_user.id == @user.id
-              = link_to edit_user_path(current_user),class: "edit__user-outer" do
-                %button.edit__user-outer-btn プロフィールを編集
-              = link_to destroy_user_session_path, method: :delete, class: "destroy_sesion-outer" do
-                %button.destroy__session-outer-btn ログアウト
-            - else
-              = render "follow_form", object: @user
+            = @tag.hashname
+            -# = render "follow_form", object: @user
         %ul.profile__container__list-outer
           %li.list-inner
             %span.list-inner__post-count
-              = "投稿 #{current_user.albums.count} 件"
-          %li.list-inner
-            = link_to "フォロワー #{@user.followers.count}人", followers_user_path(@user.id), class: "follower-count"
-          %li.list-inner
-            = link_to "#{@user.following.count}人をフォロー中", following_user_path(@user.id), class: "following-count"
+              = "投稿 #{@tag.albums.count} 件"
+          -# %li.list-inner
+          -#   = link_to "フォロワー #{@user.followers.count}人", followers_user_path(@user.id), class: "follower-count"
+          -# %li.list-inner
+          -#   = link_to "#{@user.following.count}人をフォロー中", following_user_path(@user.id), class: "following-count"
     .card__menu
       %span.card__menut__itle 投稿一覧
     .grid
-      - @user.albums.each do |album|
+      - @tag.albums.each do |album|
         .card
           = link_to image_tag(album.album_images.last.image.url,resize: '293x293', alt: "", class: "card__image" ), "/albums/#{album.id}" 
           %p 
-            = album.title
+            = render_with_hashtags(album.title)
           %span 
             = album.user.name
           .iconBox
