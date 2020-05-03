@@ -19,6 +19,7 @@ https://pacific-garden-78264.herokuapp.com/
   * いいね機能(非同期)
   * ユーザーフォロー機能(非同期)
   * 検索機能
+  * ハッシュタグ機能
   [![Screenshot from Gyazo](https://gyazo.com/ec50c4798cf4dc18522b9debeed60f7b/raw)](https://gyazo.com/ec50c4798cf4dc18522b9debeed60f7b)
 # 工夫したポイント
 アルバムをめくるようなアニメーションを表現するためにjQueryのプラグインであるturn.jsを使用しました。
@@ -60,6 +61,7 @@ https://pacific-garden-78264.herokuapp.com/
 - belongs_to :user
 - has_many :album_images, dependent: :destroy
 - has_many :comments
+- has_and_belongs_to_many :hashtags
 - has_many :likes
 - has_many :liked_users, through: :likes, source: :user
 
@@ -96,13 +98,30 @@ https://pacific-garden-78264.herokuapp.com/
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true||
-|album_id|references|null: false, foreign_key: true||
+|user_id|references|null: false, foreign_key: true|
+|album_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :album
 - belongs_to :user
 
+## hashtagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|hashname|string|unique: true, index: true|
+
+### Association
+- has_and_belongs_to_many :albums
+
+## albums_hashtagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|hashtag_id|references|null: false, foreign_key: true|
+|album_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :album
+- belongs_to :hashtag
 
 
 
