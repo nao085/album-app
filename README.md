@@ -1,6 +1,6 @@
 # Album-app
 画像を投稿してアルバムを作ることができ、共有することができるwebサービスです。
-[![Screenshot from Gyazo](https://gyazo.com/b5ca85cb86fcdcf2d3fb0d1d8bf35df3/raw)](https://gyazo.com/b5ca85cb86fcdcf2d3fb0d1d8bf35df3)
+[![Screenshot from Gyazo](https://gyazo.com/11f411f35d89d23657445d4c4a21becc/raw)](https://gyazo.com/11f411f35d89d23657445d4c4a21becc)
 # 製作背景
   手軽に日々の思い出などをアルバム化できるようなアプリがあればいいなと思い製作しました。
 # リンク
