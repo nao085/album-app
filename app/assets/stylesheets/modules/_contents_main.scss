@@ -48,6 +48,10 @@
     position: absolute;
     bottom: 15px;
     left: 5px;
+    & a {
+      text-decoration: none;
+      color: #fff;
+    }
   }
   span {
     color: rgba(255, 255, 255, 0.927);

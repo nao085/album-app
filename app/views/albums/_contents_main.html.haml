@@ -8,7 +8,7 @@
         .card
           = link_to image_tag(album.album_images.last.image.url,resize: '293x293', alt: "", class: "card__image" ),"/albums/#{album.id}" 
           %p 
-            = album.title
+            = render_with_hashtags(album.title)
           %span 
             = album.user.name
           .iconBox
