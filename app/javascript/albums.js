@@ -60,7 +60,7 @@ $(document).on('turbolinks:load', function(){
       })
       return;
     }
-    var new_image = $(`<input multiple= "multiple" name="album_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+    var new_image = $(`<input multiple= "multiple" name="album[album_images_attributes][${images.length}][image]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {

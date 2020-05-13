@@ -13,17 +13,12 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-    respond_to do |format|
       if @album.save
-          params[:album_images][:image].each do |image|
-            @album.album_images.create(image: image, album_id: @album.id)
-          end
-        format.html{redirect_to root_path} 
+        redirect_to root_path 
       else
         @album.album_images.build
-        format.html{render action: 'new'}
+        render action: 'new'
       end
-    end
   end
 
   def destroy
